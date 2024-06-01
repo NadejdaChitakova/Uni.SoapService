@@ -1,4 +1,5 @@
 ﻿using Uni.SoapService.Contracts;
+using System.Threading.Tasks;
 
 namespace Uni.SoapService.Service
 {

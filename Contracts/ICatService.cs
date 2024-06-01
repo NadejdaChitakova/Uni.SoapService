@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using CoreWCF;
+using System.Threading.Tasks;
 
 namespace Uni.SoapService.Contracts
 {
