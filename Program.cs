@@ -1,3 +1,9 @@
+using Uni.SoapService.Contracts;
+using Uni.SoapService.Service;
+using CoreWCF;
+using CoreWCF.Configuration;
+using CoreWCF.Description;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,17 +15,19 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+builder.Services.AddServiceModelServices();
+builder.Services.AddServiceModelMetadata();
+builder.Services.AddSingleton<CatService>();
+
+app.UseServiceModel(serviceBuilder =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    serviceBuilder.AddService<CatService>();
+    serviceBuilder.AddServiceEndpoint<CatService, ICatService>(new BasicHttpBinding(), "/CatService");
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
+    // Enable WSDL
+    var serviceMetadataBehavior = app.Services.GetRequiredService<ServiceMetadataBehavior>();
+    serviceMetadataBehavior.HttpGetEnabled = true;
+    serviceMetadataBehavior.HttpsGetEnabled = true;
+});
 
 app.Run();
