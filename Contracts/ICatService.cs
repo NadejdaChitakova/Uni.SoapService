@@ -7,7 +7,7 @@ namespace Uni.SoapService.Contracts
     public interface ICatService
     {
         [OperationContract]
-Task<string> SayMeow();
+        Task<string> SayMeow();
 
         [OperationContract]
         Task<string> GetCatNameByColor(string color);

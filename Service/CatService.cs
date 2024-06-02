@@ -1,8 +1,9 @@
-﻿using Uni.SoapService.Contracts;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Cors;
+using Uni.SoapService.Contracts;
 
 namespace Uni.SoapService.Service
 {
+    [EnableCors]
     public class CatService : ICatService
     {
         public Task<string> SayMeow()

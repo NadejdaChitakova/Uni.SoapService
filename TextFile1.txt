@@ -1,0 +1,10 @@
+Prerequests:
+- Installed Visual Studio editor
+- Installed .Net 8.0
+- Installed Asp.net and web development tool kit
+
+How to start:
+- Open the solution at solution explorer
+- Restore nuget packeges
+- Rebuild the application
+- Open NuGet packege manager console and run command "dotnet run"

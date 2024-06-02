@@ -1,4 +1,4 @@
-@Uni.SoapService_HostAddress = http://localhost:5058
+@Uni.SoapService_HostAddress = http://localhost:5050
 
 GET {{Uni.SoapService_HostAddress}}/weatherforecast/
 Accept: application/json
